@@ -10,7 +10,7 @@ import config from './config/keys'
     UserModule,
     MongooseModule.forRoot(config.mongoURI),
   ],
-  controllers: [UserController],
-  providers: [UserService],
+  // controllers: [UserController],
+  // providers: [UserService],
 })
 export class AppModule {}

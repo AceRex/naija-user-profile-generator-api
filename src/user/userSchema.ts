@@ -1,57 +1,103 @@
-import * as mongoose from 'mongoose';
+import { Prop, Schema, SchemaFactory, raw } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
+@Schema()
+export class User extends Document {
+  @Prop()
+  image: string;
 
-export const UserSchema = new mongoose.Schema({
-    userDetails: {
-        image: String,
-        title: String,
-        firstname: String,
-        middlename: String,
-        lastname: String,
-        placeOfBirth: String,
-        gender: String,
-        dob: Date,
-        maritalStatus: String,
-        maidenName: String,
-        religion: String,
-      employmentStatus: {
-        typeofwork: String,
-        officeAddress: String,
-        officeEmail: String,
-        officePhoneNumber: Number,
-      },
-      education: {
-        highestLevel: String,
-        youthService: String,
-        yearOfService: String,
-        placeOfService: String,
-      },
-      location: {
-        address: String,
-        lGA: String,
-        townOrCity: String,
-        state: String,
-        country: String,
-      },
-      stateOfOrigin: {
-        state: String,
-        lGA: String,
-        townCity: String,
-        country: String,
-      },
-      details: {
-        phoneNumber: String,
-        email: String,
-        idNumber: String,
-      },
-      beneficiary: {
-        name: String,
-        address: String,
-        phonenumber: String,
-        relationship: String,
-        state: String,
-        country: String,
-        email: String,
-      },  
-    },
-  });
+  @Prop()
+  title: string;
+
+  @Prop()
+  firstname: string;
+
+  @Prop()
+  middlename: string;
+
+  @Prop()
+  lastname: string;
+
+  @Prop()
+  placeOfBirth: string;
+
+  @Prop()
+  gender: string;
+
+  @Prop()
+  dob: Date;
+
+  @Prop()
+  maritalStatus: string;
+
+  @Prop()
+  maidenName: string;
+
+  @Prop()
+  religion: string;
+
+  @Prop(
+    raw({
+      typeofwork: { type: String },
+      officeAddress: { type: String },
+      officeEmail: { type: String },
+      officePhoneNumber: { type: Number },
+    }),
+  )
+  employmentStatus: Record<string, any>;
+
+  @Prop(
+    raw({
+      highestLevel: { type: String },
+      youthService: { type: String },
+      yearOfService: { type: String },
+      placeOfService: { type: String },
+    }),
+  )
+  education: Record<string, any>;
+
+  @Prop(
+    raw({
+      address: { type: String },
+      lGA: { type: String },
+      townOrCity: { type: String },
+      state: { type: String },
+      country: { type: String },
+    }),
+  )
+  location: Record<string, any>;
+
+  @Prop(
+    raw({
+      state: { type: String },
+      lGA: { type: String },
+      townCity: { type: String },
+      country: { type: String },
+    }),
+  )
+  stateOfOrigin: Record<string, any>;
+
+  @Prop(
+    raw({
+      phoneNumber: { type: Number },
+      email: { type: String },
+      idNumber: { type: Number },
+    }),
+  )
+  details: Record<string, any>;
+
+  @Prop(
+    raw({
+      name: { type: String },
+      address: { type: String },
+      phonenumber: { type: Number },
+      relationship: { type: String },
+      state: { type: String },
+      country: { type: String },
+      email: { type: String },
+    }),
+  )
+  beneficiary: Record<string, any>;
+}
+
+export const UserSchema = SchemaFactory.createForClass(User);
