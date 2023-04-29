@@ -45,7 +45,7 @@ export class CreateUserDto {
       beneficiary: {
         name: String,
         address: String,
-        phonenumber: Number,
+        phonenumber?: Number,
         relationship: String,
         state: String,
         country: String,

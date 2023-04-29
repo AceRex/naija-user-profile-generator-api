@@ -27,7 +27,9 @@ export class UserController {
 
   @Post()
   create(@Body() createUser: CreateUserDto): Promise<User> {
+    // return this.userService.create(createUser);
     return this.userService.create(createUser);
+
   }
 
   @Delete(':id')

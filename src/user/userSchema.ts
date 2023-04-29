@@ -41,7 +41,7 @@ export class User extends Document {
       typeofwork: { type: String },
       officeAddress: { type: String },
       officeEmail: { type: String },
-      officePhoneNumber: { type: Number },
+      officePhoneNumber: { type: Number || String },
     }),
   )
   employmentStatus: Record<string, any>;
@@ -90,7 +90,7 @@ export class User extends Document {
     raw({
       name: { type: String },
       address: { type: String },
-      phonenumber: { type: Number },
+      phonenumber: { type: Number || String },
       relationship: { type: String },
       state: { type: String },
       country: { type: String },
