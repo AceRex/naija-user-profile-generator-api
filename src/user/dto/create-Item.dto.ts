@@ -38,14 +38,14 @@ export class CreateUserDto {
         country: String,
       },
       details: {
-        phoneNumber: String,
+        phoneNumber: Number,
         email: String,
-        idNumber: String,
+        idNumber: Number,
       },
       beneficiary: {
         name: String,
         address: String,
-        phonenumber: String,
+        phonenumber: Number,
         relationship: String,
         state: String,
         country: String,
