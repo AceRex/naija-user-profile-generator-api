@@ -39,7 +39,7 @@ export class UserController {
   update(@Body() updateUser: User, @Param('id') id): Promise<User> {
     return this.userService.update(id, updateUser);
   }
-  @Get('/filter')
+  @Get('filter')
   find(): Promise<User[]>{
     return this.userService.filter()
   }
