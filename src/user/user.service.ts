@@ -29,7 +29,8 @@ export class UserService {
     return await this.userModel.findByIdAndUpdate(id, user, {new: true})
   }
 
-  async filter(): Promise<User[]>{
-    return await this.userModel.find(User[2])
+  async filter(num: number): Promise<User[]> {
+    const filteredUsers = await this.userModel.find().limit(num);
+    return filteredUsers;
   }
 }
