@@ -58,7 +58,7 @@ export class User extends Document {
 
   @Prop(
     raw({
-      address: { type: String },
+      address: { type: String, },
       lGA: { type: String },
       townOrCity: { type: String },
       state: { type: String },
